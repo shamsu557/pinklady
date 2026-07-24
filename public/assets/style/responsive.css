@@ -1,0 +1,94 @@
+/* ==========================================================================
+   PINKLADY ENTERPRISE — RESPONSIVE OVERRIDES
+   Mobile-first base is in style.css/components.css.
+   These breakpoints progressively enhance the layout upward.
+   ========================================================================== */
+
+/* ---- ≥360px small phones tweak ---- */
+@media (min-width: 360px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg) var(--space-md); }
+}
+
+/* ---- ≥576px large phones ---- */
+@media (min-width: 576px) {
+  .footer-bottom { flex-wrap: nowrap; }
+  .insta-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---- ≥768px tablets ---- */
+@media (min-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .masonry-grid { columns: 2 240px; }
+  .hero h1, .page-hero h1 { max-width: 80%; }
+}
+
+/* ---- ≥820px ---- */
+@media (min-width: 820px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---- ≥992px small laptops / nav breakpoint ---- */
+@media (min-width: 992px) {
+  .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; }
+  .masonry-grid { columns: 3 240px; }
+  .stats-strip { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---- ≥1024px ---- */
+@media (min-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(4, 1fr); }
+  .masonry-grid { columns: 4 240px; }
+}
+
+/* ---- ≥1200px desktop ---- */
+@media (min-width: 1200px) {
+  .container { padding-inline: var(--space-md); }
+}
+
+/* ---- ≥1400px large desktop ---- */
+@media (min-width: 1400px) {
+  .container { max-width: 1380px; }
+}
+
+/* ---- Below 992px: collapse two-col layouts, stack grids ---- */
+@media (max-width: 991.98px) {
+  .grid-2, .grid-3, .grid-4,
+  .about-grid, .team-grid, .value-grid,
+  .services-grid, .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---- Below 576px: single column everywhere, larger tap targets ---- */
+@media (max-width: 575.98px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-xs); }
+  .masonry-grid { columns: 1 100%; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .hero-actions .btn, .cta-band .btn { width: 100%; }
+  .newsletter-form { flex-direction: column; }
+  .shop-toolbar { flex-direction: column; align-items: stretch; }
+  .cookie-banner { flex-direction: column; align-items: stretch; text-align: center; }
+  .cookie-actions { justify-content: center; }
+  .whatsapp-float { width: 52px; height: 52px; font-size: 1.4rem; }
+  .back-to-top { width: 44px; height: 44px; }
+}
+
+/* ---- Landscape phones: shrink hero height so content isn't cramped ---- */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero { min-height: auto; padding-block: calc(var(--header-height) + var(--space-lg)) var(--space-lg); }
+  .page-hero { min-height: auto; padding-top: var(--header-height); }
+}
+
+/* ---- Touch device minimum target sizing safeguard ---- */
+@media (hover: none) {
+  .btn, .icon-btn, .filter-pill, .carousel-arrow, .footer-socials a, .team-socials a {
+    min-height: 48px;
+  }
+  .icon-btn, .carousel-arrow { min-width: 48px; }
+}
